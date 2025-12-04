@@ -1,0 +1,56 @@
+{
+  "exercises": [
+    {
+      "id": "squat_basic",
+      "name": "Squat classique",
+      "goal": ["muscle", "poids"],
+      "equipment": ["bodyweight", "tapis", "Rien"],
+      "duration": 15,
+      "targetArea": ["bas", "Tout"],
+      "avoidIf": [],
+      "difficulty": "Débutant",
+      "instructions": [
+        "Pieds écartés largeur d'épaules",
+        "Descends en poussant les fesses vers l'arrière",
+        "Garde le dos droit, poitrine relevée",
+        "Descends jusqu'à avoir cuisses parallèles au sol",
+        "Remonte en poussant sur les talons"
+      ],
+      "mistakes": [
+        "❌ Genoux qui dépassent les orteils",
+        "❌ Dos rond"
+      ],
+      "tips": [
+        "✅ Poids sur les talons",
+        "✅ Respire : inspire en descendant"
+      ],
+      "reps": "3 séries de 12-15 répétitions"
+    },
+    {
+      "id": "plank",
+      "name": "Planche (gainage)",
+      "goal": ["muscle", "souplesse", "Rééducation"],
+      "equipment": ["bodyweight", "tapis", "Rien"],
+      "duration": 15,
+      "targetArea": ["abdominale", "Tout"],
+      "avoidIf": [],
+      "difficulty": "Débutant",
+      "instructions": [
+        "Position sur les avant-bras",
+        "Coudes sous les épaules",
+        "Corps aligné : tête, dos, jambes en ligne droite",
+        "Contracte abdos et fessiers",
+        "Maintiens la position"
+      ],
+      "mistakes": [
+        "❌ Fesses trop hautes",
+        "❌ Dos cambré"
+      ],
+      "tips": [
+        "✅ Imagine une planche droite",
+        "✅ Respire calmement"
+      ],
+      "reps": "3 séries de 30-60 secondes"
+    }
+  ]
+}

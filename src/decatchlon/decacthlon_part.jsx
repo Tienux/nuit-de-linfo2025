@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './decathlon_part.css'
 import questionsData from './questions.json'
+import UserRecommendation from './exo_recommendation'
 
 const questions = questionsData.questions
 
@@ -11,6 +12,7 @@ function DecathlonQCM() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState({})
   const [showResults, setShowResults] = useState(false)
+  const [showRecommendations, setShowRecommendations] = useState(false)
 
   const handleAnswerSelect = (answerIndex) => {
     setSelectedAnswers({
@@ -32,7 +34,7 @@ function DecathlonQCM() {
   }
 
   const finishProfile = () => {
-    // Construire le profil utilisateur
+    // Construire le profil
     const profile = {}
     questions.forEach((question, index) => {
       profile[`question_${question.id}`] = {
@@ -42,22 +44,29 @@ function DecathlonQCM() {
       }
     })
     
-    // Sauvegarder dans la variable globale
     userSportProfile = profile
-    
-    // Sauvegarder aussi dans localStorage pour persistance
     localStorage.setItem('sportProfile', JSON.stringify(profile))
     
-    console.log('Profil utilisateur sauvegardé:', userSportProfile)
+    console.log('Profil sauvegardé:', userSportProfile)
     setShowResults(true)
+  }
+
+  const goToRecommendations = () => {
+    setShowRecommendations(true)
   }
 
   const restartProfile = () => {
     setCurrentQuestion(0)
     setSelectedAnswers({})
     setShowResults(false)
+    setShowRecommendations(false)
     userSportProfile = {}
     localStorage.removeItem('sportProfile')
+  }
+
+  // Si on veut voir les recommandations
+  if (showRecommendations) {
+    return <UserRecommendation userProfile={userSportProfile} onBack={() => setShowRecommendations(false)} />
   }
 
   if (showResults) {
@@ -93,21 +102,18 @@ function DecathlonQCM() {
 
           <div style={{ display: 'flex', gap: '10px', marginTop: '40px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button
+              onClick={goToRecommendations}
+              className="snes-button has-nature-color"
+              style={{ fontSize: '1.2em', padding: '15px 30px' }}
+            >
+              🎯 Voir mes exercices personnalisés
+            </button>
+            <button
               onClick={restartProfile}
               className="snes-button has-ember-color"
               style={{ fontSize: '1em', padding: '12px 24px' }}
             >
               🔄 Refaire le profil
-            </button>
-            <button
-              onClick={() => {
-                console.log('Profil actuel:', userSportProfile)
-                alert('Profil consulté dans la console !')
-              }}
-              className="snes-button has-turquoise-color"
-              style={{ fontSize: '1em', padding: '12px 24px' }}
-            >
-              📊 Voir le profil (console)
             </button>
           </div>
         </div>
