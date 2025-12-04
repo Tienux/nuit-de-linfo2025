@@ -217,13 +217,63 @@ export default function PlayGame() {
         }
 
         .snes-title {
-          font-size: 2rem;
-          color: #fff;
-          text-align: center;
-          margin-bottom: 2rem;
-          text-shadow: 4px 4px 0px #000, 6px 6px 0px rgba(0,0,0,0.3);
-          animation: titleBounce 2s ease-in-out infinite;
-        }
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 4px 4px 0px #000, 6px 6px 0px rgba(0,0,0,0.3);
+  animation: titleBounce 2s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.snes-snake {
+  font-size: 3rem;
+  display: inline-block;
+  filter: drop-shadow(3px 3px 0px #000);
+}
+
+.snes-snake.left {
+  animation: snakeWiggleLeft 2s ease-in-out infinite;
+}
+
+.snes-snake.right {
+  animation: snakeWiggleRight 2s ease-in-out infinite;
+  transform: scaleX(-1);
+}
+
+@keyframes snakeWiggleLeft {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-5px) translateY(-5px) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(0) translateY(-10px) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-5px) translateY(-5px) rotate(10deg);
+  }
+}
+
+@keyframes snakeWiggleRight {
+  0%, 100% {
+    transform: scaleX(-1) translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: scaleX(-1) translateX(-5px) translateY(-5px) rotate(-10deg);
+  }
+  50% {
+    transform: scaleX(-1) translateX(0) translateY(-10px) rotate(0deg);
+  }
+  75% {
+    transform: scaleX(-1) translateX(-5px) translateY(-5px) rotate(10deg);
+  }
+}
+
 
         @keyframes titleBounce {
           0%, 100% { transform: translateY(0px); }
@@ -427,7 +477,9 @@ export default function PlayGame() {
             <div className="snes-container">
                 <div style={{ maxWidth: '64rem', margin: '0 auto', position: 'relative', zIndex: 1 }}>
                     <h1 className="snes-title">
+                        <span className="snes-snake left">🐍</span>
                         Drag & Drop - Big Tech Challenge!
+                        <span className="snes-snake right">🐍</span>
                     </h1>
 
                     <div style={{ marginBottom: '3rem' }}>
