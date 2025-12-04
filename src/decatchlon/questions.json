@@ -1,0 +1,104 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Combien de temps d'activité physique modérée est recommandé par semaine pour un adulte ?",
+      "options": [
+        "75 minutes",
+        "150 minutes", 
+        "300 minutes",
+        "500 minutes"
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Quel sport fait partie des épreuves du décathlon ?",
+      "options": [
+        "Natation",
+        "Cyclisme",
+        "Saut à la perche",
+        "Tennis"
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Quelle est la principale source d'énergie utilisée lors d'un effort intense et court ?",
+      "options": [
+        "Les lipides",
+        "Les protéines",
+        "Les glucides",
+        "Les vitamines"
+      ]
+    },
+    {
+      "id": 4,
+      "question": "À quelle fréquence cardiaque maximale théorique correspond 80% pour une personne de 30 ans ?",
+      "options": [
+        "132 bpm",
+        "152 bpm",
+        "172 bpm",
+        "192 bpm"
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Combien d'épreuves comporte un décathlon ?",
+      "options": [
+        "8 épreuves",
+        "10 épreuves",
+        "12 épreuves",
+        "15 épreuves"
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Quel est le meilleur moment pour s'étirer ?",
+      "options": [
+        "Uniquement avant l'effort",
+        "Uniquement après l'effort", 
+        "Avant et après l'effort",
+        "Jamais, c'est inutile"
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Quelle est la durée minimale recommandée pour un échauffement efficace ?",
+      "options": [
+        "5 minutes",
+        "10 minutes",
+        "20 minutes",
+        "30 minutes"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Combien de litres d'eau doit-on boire par jour en moyenne lors d'une pratique sportive régulière ?",
+      "options": [
+        "1 litre",
+        "1,5 litre",
+        "2,5 litres",
+        "4 litres"
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Quel type d'exercice est le plus efficace pour améliorer l'endurance cardiovasculaire ?",
+      "options": [
+        "Musculation intensive",
+        "Étirements statiques",
+        "Course à pied modérée",
+        "Yoga"
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Combien de temps de récupération est recommandé entre deux séances de musculation intense du même groupe musculaire ?",
+      "options": [
+        "12 heures",
+        "24 heures",
+        "48 heures",
+        "72 heures"
+      ]
+    }
+  ]
+}
