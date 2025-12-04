@@ -45,30 +45,30 @@ function AppContent() {
   // Définition les zones cliquables sur los cartos :)
   const zones = [
     {
-      id: 'decathlon',
-      name: 'Decathlon 🏃',
-      path: '/decathlon',
+      id: 'home',
+      name: 'Acceuil📔',
+      path: '/',
       style: { top: '10%', left: '21%', width: '120px', height: '100px' }
     },
     {
-      id: 'projets',
-      name: 'Projets📋',
-      path: '/presentation-projet',
-      style: { top: '15%', left: '38%', width: '90px', height: '100px' }
-    }, {
-      id: 'nuit-qcm',
-      name: 'Nuit-qcm 📔',
-      path: '/nuit-qcm',
-      style: { top: '25%', left: '15%', width: '90px', height: '100px' }
-    }, {
-      id: 'Maison du serpent',
-      name: 'Maison du 🐍',
-      isEasterEgg: true,
-      style: { top: '25%', left: '26%', width: '90px', height: '100px' }
-    }, {
       id: 'A propos',
       name: 'A propos 🤓',
       path: '/A-propos',
+      style: { top: '15%', left: '38%', width: '90px', height: '100px' }
+    }, {
+      id: 'projets',
+      name: 'Projets📋',
+      path: '/presentation-projet',
+      style: { top: '25%', left: '15%', width: '90px', height: '100px' }
+    }, {
+      id: 'Decathlon',
+      name: 'Decathlon🏃',
+      path: '/decathlon',
+      style: { top: '25%', left: '26%', width: '90px', height: '100px' }
+    }, {
+      id: 'Easter-egg',
+      name: 'Maison du 🐍',
+      isEasterEgg: true,
       style: { top: '22%', left: '37%', width: '90px', height: '100px' }
     }
   ]
