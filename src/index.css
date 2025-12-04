@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  min-height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: #646cff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+/* Réinitialise les styles des boutons par défaut pour laisser SNES.css faire le job */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
