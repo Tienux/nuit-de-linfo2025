@@ -84,13 +84,26 @@ const SnakeGame = () => {
         attempts++;
       } while (
         attempts < 200 &&
+        // Collision avec serpent
         (currentSnake.some(
           (segment) => segment.x === newFood.x && segment.y === newFood.y
         ) ||
+          // Collision avec autre nourriture
           existingFoods.some(
             (food) => food.x === newFood.x && food.y === newFood.y
           ) ||
-          existingPowerups.some((p) => p.x === newFood.x && p.y === newFood.y))
+          // Collision avec powerups/m enhirs multi-cases
+          existingPowerups.some((p) => {
+            const pSize = p.size || 1;
+            for (let dx = 0; dx < pSize; dx++) {
+              for (let dy = 0; dy < pSize; dy++) {
+                if (p.x + dx === newFood.x && p.y + dy === newFood.y) {
+                  return true; // nourriture placée DANS une des cases du menhir → interdit
+                }
+              }
+            }
+            return false;
+          }))
       );
 
       return newFood;
