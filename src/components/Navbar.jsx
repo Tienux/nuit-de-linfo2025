@@ -9,7 +9,7 @@ const Navbar = () => {
     { path: '/', label: '🏠 Accueil', icon: '🏠' },
     { path: '/nuit-qcm', label: '📝 Quiz NIRD', icon: '📝' },
     { path: '/decathlon', label: '🏃 Décathlon', icon: '🏃' },
-    { path: '/presentation', label: '📊 Projet', icon: '📊' },
+    { path: '/presentation-projet', label: '📊 Projet', icon: '📊' },
     { path: '/a-propos', label: 'ℹ️ À propos', icon: 'ℹ️' },
   ];
 
