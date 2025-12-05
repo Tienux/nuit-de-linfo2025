@@ -259,6 +259,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AppContent />} />
         <Route path='/nuit-de-linfo2025/' element={<AppContent />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/snake" element={<PlayGame />} />
         <Route path="/a-propos" element={<Apropos />} />
         <Route path="/decathlon" element={<DecathlonQCM />} />
