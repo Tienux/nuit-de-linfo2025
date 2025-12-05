@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import menhirImg from "../images/menhir.png";
 import boarImg from "../images/sanglier.png";
 import potionImg from "../images/potion.png";
+import tileImg from "../images/dalle.png";
+import helmetImg from "../images/casque.png";
+
 // ========================================
 // 🎮 CONFIGURATION DU JEU
 // ========================================
@@ -944,94 +947,18 @@ const SnakeGame = () => {
                     opacity="0.6"
                   />
                 )}
-                {/* Casque gaulois sur la tête */}
+                {/* Casque PNG sur la tête */}
                 {index === 0 && (
                   <>
-                    {/* Casque ailé */}
-                    <ellipse
-                      cx={segment.x * CELL_SIZE + CELL_SIZE / 2}
-                      cy={segment.y * CELL_SIZE + 8}
-                      rx="8"
-                      ry="6"
-                      fill="#FFD700"
-                      stroke="#DAA520"
-                      strokeWidth="1"
+                    <image
+                      href={helmetImg}
+                      x={segment.x * CELL_SIZE + 4}
+                      y={segment.y * CELL_SIZE - 2}
+                      width={CELL_SIZE - 8}
+                      height={CELL_SIZE - 8}
+                      preserveAspectRatio="xMidYMid meet"
                     />
-                    {/* Ailes du casque */}
-                    <path
-                      d={`M ${segment.x * CELL_SIZE + 6} ${
-                        segment.y * CELL_SIZE + 8
-                      } 
-                          Q ${segment.x * CELL_SIZE + 2} ${
-                        segment.y * CELL_SIZE + 6
-                      } 
-                          ${segment.x * CELL_SIZE + 4} ${
-                        segment.y * CELL_SIZE + 10
-                      }`}
-                      fill="#FFD700"
-                      stroke="#DAA520"
-                      strokeWidth="1"
-                    />
-                    <path
-                      d={`M ${segment.x * CELL_SIZE + CELL_SIZE - 6} ${
-                        segment.y * CELL_SIZE + 8
-                      } 
-                          Q ${segment.x * CELL_SIZE + CELL_SIZE - 2} ${
-                        segment.y * CELL_SIZE + 6
-                      } 
-                          ${segment.x * CELL_SIZE + CELL_SIZE - 4} ${
-                        segment.y * CELL_SIZE + 10
-                      }`}
-                      fill="#FFD700"
-                      stroke="#DAA520"
-                      strokeWidth="1"
-                    />
-                    {/* Yeux */}
-                    <rect
-                      x={segment.x * CELL_SIZE + 8}
-                      y={segment.y * CELL_SIZE + 12}
-                      width={4}
-                      height={4}
-                      fill={isConfused ? "#FF0000" : "#000"}
-                      rx="1"
-                    />
-                    <rect
-                      x={segment.x * CELL_SIZE + 18}
-                      y={segment.y * CELL_SIZE + 12}
-                      width={4}
-                      height={4}
-                      fill={isConfused ? "#FF0000" : "#000"}
-                      rx="1"
-                    />
-                    {/* Moustache gauloise */}
-                    <path
-                      d={`M ${segment.x * CELL_SIZE + 8} ${
-                        segment.y * CELL_SIZE + 20
-                      }
-                          Q ${segment.x * CELL_SIZE + 5} ${
-                        segment.y * CELL_SIZE + 18
-                      }
-                          ${segment.x * CELL_SIZE + 6} ${
-                        segment.y * CELL_SIZE + 22
-                      }`}
-                      stroke="#654321"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <path
-                      d={`M ${segment.x * CELL_SIZE + CELL_SIZE - 8} ${
-                        segment.y * CELL_SIZE + 20
-                      }
-                          Q ${segment.x * CELL_SIZE + CELL_SIZE - 5} ${
-                        segment.y * CELL_SIZE + 18
-                      }
-                          ${segment.x * CELL_SIZE + CELL_SIZE - 6} ${
-                        segment.y * CELL_SIZE + 22
-                      }`}
-                      stroke="#654321"
-                      strokeWidth="2"
-                      fill="none"
-                    />
+
                     {/* Étoiles de confusion */}
                     {isConfused && (
                       <>
