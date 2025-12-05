@@ -30,6 +30,75 @@ function App() {
   const [count, setCount] = useState(0);
   const [showSnake, setShowSnake] = useState(false);
 
+  // Apparition aléatoire du serpent
+  useEffect(() => {
+    const randomAppearance = () => {
+      // Position aléatoire
+      const randomTop = Math.random() * 70 + 10 // Entre 10% et 80%
+      const randomLeft = Math.random() * 70 + 10 // Entre 10% et 80%
+      
+      setSnakePosition({ top: `${randomTop}%`, left: `${randomLeft}%` })
+      setShowSnake(true)
+      
+      // Le serpent disparaît après 5 secondes
+      setTimeout(() => {
+        setShowSnake(false)
+      }, 5000)
+    }
+
+    // Première apparition après 3 secondes
+    const firstTimeout = setTimeout(randomAppearance, 3000)
+    
+    // Réapparitions aléatoires toutes les 10-20 secondes
+    const interval = setInterval(() => {
+      randomAppearance()
+    }, Math.random() * 10000 + 10000)
+
+    return () => {
+      clearTimeout(firstTimeout)
+      clearInterval(interval)
+    }
+  }, [])
+
+  // Définition les zones cliquables sur los cartos :)
+  const zones = [
+    {
+      id: 'home',
+      name: 'Acceuil📔',
+      path: '/',
+      style: { top: '10%', left: '21%', width: '120px', height: '100px' }
+    },
+    {
+      id: 'A propos',
+      name: 'A propos 🤓',
+      path: '/A-propos',
+      style: { top: '15%', left: '38%', width: '90px', height: '100px' }
+    }, {
+      id: 'projets',
+      name: 'Projets📋',
+      path: '/presentation-projet',
+      style: { top: '25%', left: '15%', width: '90px', height: '100px' }
+    }, {
+      id: 'Decathlon',
+      name: 'Decathlon🏃',
+      path: '/decathlon',
+      style: { top: '25%', left: '26%', width: '90px', height: '100px' }
+    }, {
+      id: 'Easter-egg',
+      name: 'Maison du 🐍',
+      isEasterEgg: true,
+      style: { top: '22%', left: '37%', width: '90px', height: '100px' }
+    }
+  ]
+
+  const handleZoneClick = (zone) => {
+    if (zone.isEasterEgg) {
+      setShowEasterEgg(true)
+    } else if (zone.path) {
+      navigate(zone.path)
+    }
+  }
+
   return (
     <div className="app-container">
       {/* Header style NES */}
@@ -40,7 +109,7 @@ function App() {
         <p className="title">Nuit de l'Info 2025</p>
         <h1 style={{ marginTop: "10px" }}>
           <i className="nes-icon trophy is-medium"></i>
-          Three.js + Retro Gaming
+          Rejoignez la resistance numérique !
         </h1>
       </header>
 
@@ -148,7 +217,7 @@ function App() {
       >
         <p>
           <i className="nes-icon heart is-small"></i>
-          Créé pour la Nuit de l'Info
+          Fait avec passion pour la Nuit de l'Info 2025
           <i className="nes-icon star is-small"></i>
         </p>
         <div className="nes-badge" style={{ marginTop: "10px" }}>
