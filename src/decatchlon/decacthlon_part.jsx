@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './decathlon_part.css'
 import questionsData from './questions.json'
 import UserRecommendation from './exo_recommendation'
+import Navbar from '../components/Navbar'
 
 const questions = questionsData.questions
 
@@ -128,7 +129,9 @@ function DecathlonQCM() {
   const progress = ((currentQuestion + 1) / questions.length) * 100
   
   return (
-    <div className="decathlon-container">
+    <>
+      <Navbar />
+      <div className="decathlon-container">
       <div className="decathlon-content">
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap' }}>
@@ -226,6 +229,7 @@ function DecathlonQCM() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

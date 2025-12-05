@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './decathlon_part.css'; 
 import questionsData from './questions-nuit.json'; 
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const questions = questionsData.questions;
 
@@ -82,7 +83,9 @@ function QuizNird() {
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <div className="qcm-container">
+    <>
+      <Navbar />
+      <div className="quiz-container">
       <div className="qcm-card">
         
         {/* Header */}
@@ -155,6 +158,7 @@ function QuizNird() {
 
       </div>
     </div>
+    </>
   );
 }
 

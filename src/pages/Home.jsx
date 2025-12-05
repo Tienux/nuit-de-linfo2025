@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 function Home() {
   const navigate = useNavigate();
@@ -8,7 +9,9 @@ function Home() {
   };
 
   return (
-    <div className="home-container">
+    <>
+      <Navbar />
+      <div className="home-container">
       <div className="hero-content">
         
         {/* Titre impactant basé sur la métaphore du village résistant */}
@@ -42,6 +45,7 @@ function Home() {
 
       </div>
     </div>
+    </>
   )
 }
 
