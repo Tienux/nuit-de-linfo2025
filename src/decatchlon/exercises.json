@@ -31,7 +31,8 @@
           "repetitions": "12-15",
           "temps_repos": "60 secondes",
           "muscles_cibles": ["Quadriceps", "Fessiers", "Ischio-jambiers"],
-          "difficulte": 3
+          "difficulte": 3,
+          "image": "squat.png"
         },
         {
           "id": "p1_m2",
@@ -55,9 +56,10 @@
           ],
           "series": 3,
           "repetitions": "8-12",
-          "temps_repos": "90 secondes",
+          "temps_repos": "45 secondes",
           "muscles_cibles": ["Pectoraux", "Triceps", "Deltoïdes antérieurs"],
-          "difficulte": 2
+          "difficulte": 2,
+          "image": "pompe_genou.png"
         },
         {
           "id": "p1_m3",
@@ -84,7 +86,8 @@
           "temps_maintenu": "30-45 secondes",
           "temps_repos": "30 secondes",
           "muscles_cibles": ["Grand droit", "Transverse", "Obliques"],
-          "difficulte": 3
+          "difficulte": 3,
+          "image": "plance_abdo.png"
         }
       ],
       "structure_seance": [
@@ -127,7 +130,8 @@
           "repetitions": "10-15",
           "temps_repos": "60 secondes",
           "muscles_cibles": ["Pectoraux", "Quadriceps", "Fessiers", "Épaules"],
-          "difficulte": 4
+          "difficulte": 4,
+          "image": "burpees.png"
         },
         {
           "id": "p2_m2",
@@ -153,7 +157,8 @@
           "temps_maintenu": "30-45 secondes",
           "temps_repos": "30 secondes",
           "muscles_cibles": ["Abdominaux", "Deltoïdes", "Quadriceps", "Fessiers"],
-          "difficulte": 3
+          "difficulte": 3,
+          "image": "climber.png"
         },
         {
           "id": "p2_m3",
@@ -179,7 +184,8 @@
           "repetitions": "20-30",
           "temps_repos": "45 secondes",
           "muscles_cibles": ["Quadriceps", "Fessiers", "Deltoïdes", "Cardio"],
-          "difficulte": 3
+          "difficulte": 3,
+          "image": "saut.png"
         }
       ],
       "structure_seance": [
@@ -226,7 +232,8 @@
           "temps_maintenu": "30-60 secondes",
           "temps_repos": "30 secondes",
           "muscles_cibles": ["Ischio-jambiers", "Mollets", "Dos", "Épaules"],
-          "difficulte": 3
+          "difficulte": 3,
+          "image": "chien.png"
         },
         {
           "id": "p3_m2",
@@ -253,7 +260,8 @@
           "temps_maintenu": "45-60 secondes",
           "temps_repos": "20 secondes",
           "muscles_cibles": ["Dos", "Hanches", "Cuisines", "Épaules"],
-          "difficulte": 1
+          "difficulte": 1,
+          "image": "posture.png"
         },
         {
           "id": "p3_m3",
@@ -281,7 +289,8 @@
           "temps_maintenu": "30 secondes par jambe",
           "temps_repos": "15 secondes",
           "muscles_cibles": ["Ischio-jambiers", "Mollets", "Dos"],
-          "difficulte": 2
+          "difficulte": 2,
+          "image": "etirement.png"
         }
       ],
       "structure_seance": [

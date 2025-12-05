@@ -2,6 +2,30 @@ import { useState, useEffect } from 'react'
 import './exo_recommendation.css'
 import programmesData from './exercises.json'
 
+// Import des images des exercices
+import squatImg from '../assets/squat.png'
+import pompeGenouImg from '../assets/pompe_genou.png'
+import plancheAbdoImg from '../assets/plance_abdo.png'
+import burpeesImg from '../assets/burpees.png'
+import climberImg from '../assets/climber.png'
+import sautImg from '../assets/saut.png'
+import chienImg from '../assets/chien.png'
+import postureImg from '../assets/posture.png'
+import etirementImg from '../assets/etirement.png'
+
+// Mapping des noms d'images vers les imports
+const imageMap = {
+  'squat.png': squatImg,
+  'pompe_genou.png': pompeGenouImg,
+  'plance_abdo.png': plancheAbdoImg,
+  'burpees.png': burpeesImg,
+  'climber.png': climberImg,
+  'saut.png': sautImg,
+  'chien.png': chienImg,
+  'posture.png': postureImg,
+  'etirement.png': etirementImg
+}
+
 function UserRecommendation({ userProfile, onBack }) {
   const [recommendedProgramme, setRecommendedProgramme] = useState(null)
   const [selectedMovement, setSelectedMovement] = useState(null)
@@ -115,6 +139,22 @@ function UserRecommendation({ userProfile, onBack }) {
                 className="exercise-card"
                 onClick={() => setSelectedMovement(movement)}
               >
+                {movement.image && imageMap[movement.image] && (
+                  <div style={{ marginBottom: '15px', textAlign: 'center' }}>
+                    <img 
+                      src={imageMap[movement.image]} 
+                      alt={movement.nom}
+                      style={{ 
+                        width: '100%', 
+                        maxWidth: '200px', 
+                        height: '120px', 
+                        objectFit: 'cover', 
+                        borderRadius: '8px',
+                        border: '2px solid #0891b2'
+                      }}
+                    />
+                  </div>
+                )}
                 <h3 className="text-turquoise-color" style={{ marginBottom: '10px' }}>
                   {movement.nom}
                 </h3>
@@ -174,6 +214,22 @@ function UserRecommendation({ userProfile, onBack }) {
           <div className="exercise-modal" onClick={() => setSelectedMovement(null)}>
             <div className="exercise-modal-content" onClick={(e) => e.stopPropagation()}>
               <blockquote className="snes-blockquote has-ocean-bg">
+                {selectedMovement.image && imageMap[selectedMovement.image] && (
+                  <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+                    <img 
+                      src={imageMap[selectedMovement.image]} 
+                      alt={selectedMovement.nom}
+                      style={{ 
+                        width: '100%', 
+                        maxWidth: '300px', 
+                        height: '200px', 
+                        objectFit: 'cover', 
+                        borderRadius: '12px',
+                        border: '3px solid #fbbf24'
+                      }}
+                    />
+                  </div>
+                )}
                 <h2 className="text-sunshine-color" style={{ fontSize: '1.8em', marginBottom: '10px' }}>
                   {selectedMovement.nom}
                 </h2>
