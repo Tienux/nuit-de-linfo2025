@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-
+import menhirImg from "../images/menhir.png";
+import boarImg from "../images/sanglier.png";
+import potionImg from "../images/potion.png";
 // ========================================
 // 🎮 CONFIGURATION DU JEU
 // ========================================
@@ -863,7 +865,7 @@ const SnakeGame = () => {
               </g>
             ))}
 
-            {/* Power-ups Astérix avec vraies images */}
+            {/* Power-ups Astérix avec images PNG */}
             {powerups.map((powerup, index) => {
               const size = powerup.size || 1;
               const isMenhir =
@@ -874,191 +876,40 @@ const SnakeGame = () => {
 
               return (
                 <g key={`powerup-${index}`}>
+                  {/* 🐗 Sanglier */}
                   {powerup.type === POWERUP_TYPES.BOAR && (
-                    <>
-                      {/* 🐗 Sanglier d'Astérix */}
-                      <rect
-                        x={powerup.x * CELL_SIZE + 2}
-                        y={powerup.y * CELL_SIZE + 2}
-                        width={CELL_SIZE - 4}
-                        height={CELL_SIZE - 4}
-                        fill="#8B4513"
-                        rx="4"
-                        stroke="#5D2E0F"
-                        strokeWidth="2"
-                      />
-                      {/* Emoji sanglier rôti */}
-                      <text
-                        x={powerup.x * CELL_SIZE + CELL_SIZE / 2}
-                        y={powerup.y * CELL_SIZE + CELL_SIZE / 2 + 8}
-                        textAnchor="middle"
-                        fontSize="22"
-                        fill="#FFF"
-                      >
-                        🍖
-                      </text>
-                    </>
+                    <image
+                      href={boarImg}
+                      x={powerup.x * CELL_SIZE + 2}
+                      y={powerup.y * CELL_SIZE + 2}
+                      width={CELL_SIZE - 4}
+                      height={CELL_SIZE - 4}
+                      preserveAspectRatio="xMidYMid meet"
+                    />
                   )}
+
+                  {/* 🗿 Menhirs (1x1, 2x2, 3x3, 4x4) */}
                   {isMenhir && (
-                    <>
-                      {/* 🗿 Menhir style Obélix - Forme allongée avec pointe */}
-                      <g>
-                        {/* Corps du menhir (trapèze allongé) */}
-                        <defs>
-                          <linearGradient
-                            id={`menhirGrad${index}`}
-                            x1="0%"
-                            y1="0%"
-                            x2="100%"
-                            y2="0%"
-                          >
-                            <stop
-                              offset="0%"
-                              style={{ stopColor: "#5D6D7E", stopOpacity: 1 }}
-                            />
-                            <stop
-                              offset="50%"
-                              style={{ stopColor: "#95A5A6", stopOpacity: 1 }}
-                            />
-                            <stop
-                              offset="100%"
-                              style={{ stopColor: "#5D6D7E", stopOpacity: 1 }}
-                            />
-                          </linearGradient>
-                        </defs>
-
-                        {/* Forme du menhir avec perspective */}
-                        <path
-                          d={`
-                            M ${
-                              powerup.x * CELL_SIZE + size * CELL_SIZE * 0.3
-                            } ${powerup.y * CELL_SIZE + size * CELL_SIZE * 0.95}
-                            L ${
-                              powerup.x * CELL_SIZE + size * CELL_SIZE * 0.2
-                            } ${powerup.y * CELL_SIZE + size * CELL_SIZE * 0.6}
-                            L ${
-                              powerup.x * CELL_SIZE + size * CELL_SIZE * 0.35
-                            } ${powerup.y * CELL_SIZE + size * CELL_SIZE * 0.2}
-                            L ${
-                              powerup.x * CELL_SIZE + size * CELL_SIZE * 0.5
-                            } ${powerup.y * CELL_SIZE + size * CELL_SIZE * 0.05}
-                            L ${
-                              powerup.x * CELL_SIZE + size * CELL_SIZE * 0.65
-                            } ${powerup.y * CELL_SIZE + size * CELL_SIZE * 0.2}
-                            L ${
-                              powerup.x * CELL_SIZE + size * CELL_SIZE * 0.8
-                            } ${powerup.y * CELL_SIZE + size * CELL_SIZE * 0.6}
-                            L ${
-                              powerup.x * CELL_SIZE + size * CELL_SIZE * 0.7
-                            } ${powerup.y * CELL_SIZE + size * CELL_SIZE * 0.95}
-                            Z
-                          `}
-                          fill={`url(#menhirGrad${index})`}
-                          stroke="#34495E"
-                          strokeWidth="2"
-                        />
-
-                        {/* Fissures et détails */}
-                        <line
-                          x1={powerup.x * CELL_SIZE + size * CELL_SIZE * 0.4}
-                          y1={powerup.y * CELL_SIZE + size * CELL_SIZE * 0.3}
-                          x2={powerup.x * CELL_SIZE + size * CELL_SIZE * 0.35}
-                          y2={powerup.y * CELL_SIZE + size * CELL_SIZE * 0.5}
-                          stroke="#2C3E50"
-                          strokeWidth="1.5"
-                          opacity="0.6"
-                        />
-                        <line
-                          x1={powerup.x * CELL_SIZE + size * CELL_SIZE * 0.6}
-                          y1={powerup.y * CELL_SIZE + size * CELL_SIZE * 0.4}
-                          x2={powerup.x * CELL_SIZE + size * CELL_SIZE * 0.65}
-                          y2={powerup.y * CELL_SIZE + size * CELL_SIZE * 0.7}
-                          stroke="#2C3E50"
-                          strokeWidth="1.5"
-                          opacity="0.6"
-                        />
-
-                        {/* Ombrage pour relief */}
-                        <ellipse
-                          cx={powerup.x * CELL_SIZE + size * CELL_SIZE * 0.5}
-                          cy={powerup.y * CELL_SIZE + size * CELL_SIZE * 0.98}
-                          rx={size * CELL_SIZE * 0.25}
-                          ry={size * CELL_SIZE * 0.05}
-                          fill="#000"
-                          opacity="0.3"
-                        />
-
-                        {/* Taille indicateur */}
-                        {size > 1 && (
-                          <text
-                            x={powerup.x * CELL_SIZE + size * CELL_SIZE * 0.5}
-                            y={powerup.y * CELL_SIZE + size * CELL_SIZE * 0.5}
-                            textAnchor="middle"
-                            fontSize={size * 10}
-                            fill="#FFF"
-                            fontWeight="bold"
-                            stroke="#000"
-                            strokeWidth="1"
-                          >
-                            {size}x{size}
-                          </text>
-                        )}
-                      </g>
-                    </>
+                    <image
+                      href={menhirImg}
+                      x={powerup.x * CELL_SIZE}
+                      y={powerup.y * CELL_SIZE}
+                      width={CELL_SIZE * size}
+                      height={CELL_SIZE * size}
+                      preserveAspectRatio="xMidYMid meet"
+                    />
                   )}
+
+                  {/* 🧪 Potion magique */}
                   {powerup.type === POWERUP_TYPES.POTION && (
-                    <>
-                      {/* 🧪 Potion magique */}
-                      <rect
-                        x={powerup.x * CELL_SIZE + 2}
-                        y={powerup.y * CELL_SIZE + 2}
-                        width={CELL_SIZE - 4}
-                        height={CELL_SIZE - 4}
-                        fill="#9B59B6"
-                        rx="4"
-                        stroke="#8E44AD"
-                        strokeWidth="2"
-                      />
-                      {/* Fiole avec liquide doré */}
-                      <ellipse
-                        cx={powerup.x * CELL_SIZE + CELL_SIZE / 2}
-                        cy={powerup.y * CELL_SIZE + CELL_SIZE / 2 + 3}
-                        rx="8"
-                        ry="10"
-                        fill="#FFD700"
-                      />
-                      <rect
-                        x={powerup.x * CELL_SIZE + CELL_SIZE / 2 - 3}
-                        y={powerup.y * CELL_SIZE + 6}
-                        width="6"
-                        height="6"
-                        fill="#8E44AD"
-                        rx="1"
-                      />
-                      {/* Bouchon */}
-                      <rect
-                        x={powerup.x * CELL_SIZE + CELL_SIZE / 2 - 2}
-                        y={powerup.y * CELL_SIZE + 4}
-                        width="4"
-                        height="3"
-                        fill="#654321"
-                      />
-                      {/* Étoiles magiques */}
-                      <text
-                        x={powerup.x * CELL_SIZE + 5}
-                        y={powerup.y * CELL_SIZE + 8}
-                        fontSize="8"
-                      >
-                        ✨
-                      </text>
-                      <text
-                        x={powerup.x * CELL_SIZE + CELL_SIZE - 10}
-                        y={powerup.y * CELL_SIZE + CELL_SIZE - 5}
-                        fontSize="8"
-                      >
-                        ✨
-                      </text>
-                    </>
+                    <image
+                      href={potionImg}
+                      x={powerup.x * CELL_SIZE + 2}
+                      y={powerup.y * CELL_SIZE + 2}
+                      width={CELL_SIZE - 4}
+                      height={CELL_SIZE - 4}
+                      preserveAspectRatio="xMidYMid meet"
+                    />
                   )}
                 </g>
               );
