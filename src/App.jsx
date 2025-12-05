@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Home from './pages/Home'
 import Decathlon from './pages/Decathlon'
 import PresentationProjet from './pages/PresentationProjet'
+import QuizNird from './pages/Nuit-qcm'
 import './App.css'
 
 function AppContent() {
@@ -100,6 +101,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/decathlon" element={<Decathlon />} />
         <Route path="/presentation-projet" element={<PresentationProjet />} />
+        <Route path="/nuit-qcm" element={<QuizNird />} />
       </Routes>
 
       {/* Carte interactive commune */}

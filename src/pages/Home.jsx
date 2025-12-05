@@ -4,7 +4,7 @@ function Home() {
   const navigate = useNavigate();
 
   const handleStartQuiz = () => {
-    navigate('/quiz'); 
+    navigate('/nuit-qcm'); 
   };
 
   return (
