@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import Apropos from './pages/A-propos.jsx'
 import DecathlonQCM from './decatchlon/decacthlon_part.jsx'
@@ -255,18 +255,17 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<AppContent />} />
-        <Route path='/nuit-de-linfo2025/' element={<AppContent />} />
-        <Route path="/home" element={<Home />} />
+        <Route path='/nuit-de-linfo2025/' element={<AppContent />} />        <Route path="/home" element={<Home />} />
         <Route path="/snake" element={<PlayGame />} />
         <Route path="/a-propos" element={<Apropos />} />
         <Route path="/decathlon" element={<DecathlonQCM />} />
         <Route path="/presentation-projet" element={<PresentationProjet />} />
         <Route path="/nuit-qcm" element={<QuizNird />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

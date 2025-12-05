@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirection...</title>
+    <script>
+      // Récupère l'URL demandée
+      const segment = window.location.pathname.split('/').filter(Boolean);
+      // Redirige vers index.html avec l'URL dans le hash
+      const targetPath = segment.slice(1).join('/');
+      window.location.replace('/nuit-de-linfo2025/#/' + targetPath);
+    </script>
+  </head>
+  <body></body>
+</html>
