@@ -1,0 +1,66 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Quel est ton objectif sportif ?",
+      "options": [
+        { 
+          "text": "Me muscler", 
+          "scores": { "p1": 5, "p2": 2, "p3": 0 } 
+        },
+        { 
+          "text": "Perdre du poids", 
+          "scores": { "p1": 2, "p2": 5, "p3": 1 } 
+        },
+        { 
+          "text": "Gagner en souplesse", 
+          "scores": { "p1": 0, "p2": 1, "p3": 5 } 
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "À quelle fréquence fais-tu du sport ?",
+      "options": [
+        { 
+          "text": "Jamais", 
+          "scores": { "p1": 1, "p2": 0, "p3": 4 } 
+        },
+        { 
+          "text": "Parfois (1 fois par semaine)", 
+          "scores": { "p1": 2, "p2": 2, "p3": 3 } 
+        },
+        { 
+          "text": "Souvent (2 à 3 fois par semaine)", 
+          "scores": { "p1": 4, "p2": 3, "p3": 2 } 
+        },
+        { 
+          "text": "Tout le temps (4 fois ou plus)", 
+          "scores": { "p1": 5, "p2": 5, "p3": 1 } 
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Quelle partie du corps veux-tu travailler en priorité ?",
+      "options": [
+        { 
+          "text": "Le haut du corps", 
+          "scores": { "p1": 5, "p2": 3, "p3": 1 } 
+        },
+        { 
+          "text": "Le bas du corps", 
+          "scores": { "p1": 5, "p2": 3, "p3": 1 } 
+        },
+        { 
+          "text": "La sangle abdominale", 
+          "scores": { "p1": 4, "p2": 4, "p3": 2 } 
+        },
+        { 
+          "text": "Tout le corps", 
+          "scores": { "p1": 3, "p2": 5, "p3": 4 } 
+        }
+      ]
+    }
+  ]
+}
