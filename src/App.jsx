@@ -86,6 +86,8 @@ function AppContent() {
     <div className="app-container">
       {/* Header style NES */}
       <header className="nes-container is-dark with-title" style={{ margin: '20px auto', maxWidth: '900px' }}>
+        <title>Nuit de l'Info 2025</title>
+        <link rel="shortcut icon" href="images/asterix.svg" type="image/svg+xml" />
         <nav onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <img src="/images/asterix.png" alt="asterix" style={{width: 100}}/>
         </nav>
