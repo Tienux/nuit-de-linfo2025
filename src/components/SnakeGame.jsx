@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import menhirImg from "../images/menhir.png";
 import boarImg from "../images/sanglier.png";
 import potionImg from "../images/potion.png";
+import Navbar from './Navbar';
 // ========================================
 // 🎮 CONFIGURATION DU JEU
 // ========================================
@@ -578,8 +579,10 @@ const SnakeGame = () => {
   // 🎨 RENDU DU COMPOSANT
   // ========================================
   return (
-    <div style={styles.container}>
-      <div style={styles.gameWrapper}>
+    <>
+      <Navbar />
+      <div style={styles.container}>
+        <div style={styles.gameWrapper}>
         {/* 📖 LÉGENDE DES POWER-UPS */}
         <div
           className="nes-container is-rounded"
@@ -1092,6 +1095,7 @@ const SnakeGame = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

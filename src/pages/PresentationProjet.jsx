@@ -1,6 +1,10 @@
+import Navbar from '../components/Navbar';
+
 function PresentationProjet() {
   return (
-    <div style={{ margin: '20px auto', maxWidth: '900px' }}>
+    <>
+      <Navbar />
+      <div style={{ margin: '20px auto', maxWidth: '900px' }}>
       <div className="nes-container is-rounded">
         <h2>📋 Présentation du Projet</h2>
         <p style={{ marginTop: '20px', lineHeight: '1.6' }}>
@@ -39,6 +43,7 @@ function PresentationProjet() {
         </p>
       </div>
     </div>
+    </>
   )
 }
 

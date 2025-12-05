@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
 import SnakeGame from './components/SnakeGame';
+import Navbar from './components/Navbar';
 
 export default function PlayGame() {
     const [draggedLetters, setDraggedLetters] = useState([]);
@@ -104,6 +105,7 @@ export default function PlayGame() {
 
     return (
         <>
+        <Navbar />
             <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         

@@ -1,5 +1,9 @@
+import Navbar from '../components/Navbar';
+
 function Apropos(){
     return(
+        <>
+        <Navbar />
         <div style={{ margin: '20px auto', maxWidth: '900px' }}>
             {/* En-tête */}
             <div className="nes-container is-rounded with-title">
@@ -80,6 +84,7 @@ function Apropos(){
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
