@@ -257,7 +257,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppContent />} />
-        <Route path="/play" element={<PlayGame />} />
+        <Route path="/snake" element={<PlayGame />} />
         <Route path="/a-propos" element={<Apropos />} />
         <Route path="/decathlon" element={<DecathlonQCM />} />
         <Route path="/presentation-projet" element={<PresentationProjet />} />
