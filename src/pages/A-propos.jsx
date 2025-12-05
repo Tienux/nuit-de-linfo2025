@@ -6,7 +6,7 @@ function Apropos(){
                 <p className="title">👥 Notre Équipe</p>
                 <h2>À propos de nous !</h2>
                 <p style={{ marginTop: '20px', lineHeight: '1.8' }}>
-                    Nous sommes une équipe de <strong>7 étudiants en Master 2 ISA</strong> (Ingénierie des Systèmes et Applications) 
+                    Nous sommes une équipe de <strong>7 étudiants en Master 2 ISA</strong> (Intelligent Systems and Applications) 
                     à l'<strong>Université de Tours</strong>. Passionnés par le développement web et les défis techniques, 
                     nous participons à la <strong>Nuit de l'Info 2025</strong> avec enthousiasme et créativité !
                 </p>
