@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js Local</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        display: block;
+      }
+
+      /* Modale */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 300px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        color: black;
+      }
+
+      /* Boîte de commandes */
+      .commands-box {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        font-family: monospace;
+        font-size: 14px;
+        text-shadow: 2px 2px 0px black;
+        line-height: 1.8;
+        background: rgba(61, 40, 23, 0.9);
+        padding: 12px 16px;
+        border: 3px solid #ffd700;
+      }
+
+      .title-box {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        font-family: monospace;
+        font-size: 24px;
+        text-shadow: 3px 3px 0px black;
+        font-weight: bold;
+        background: rgba(61, 40, 23, 0.9);
+        padding: 12px 24px;
+        border: 4px solid #ffd700;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modale -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <button onclick="closeModal()">Fermer</button>
+      </div>
+    </div>
+
+    <!-- Titre -->
+    <div class="title-box">🏛️ VILLAGE GAULOIS</div>
+
+    <!-- Boîte de commandes -->
+    <div class="commands-box">
+      <div>▶ ZQSD / Fleches - Deplacement</div>
+      <div>▶ Clic + Drag - Regarder</div>
+      <div>▶ Clic - Interagir</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="projets-script.js"></script>
+  </body>
+</html>
