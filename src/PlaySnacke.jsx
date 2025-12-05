@@ -571,6 +571,7 @@ export default function PlayGame() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                         <Check className="snes-icon" />
                         <span>🎉 Bravo! Vous avez découvert GAFAM!</span>
+                        
                     </div>
                 </div>
             )}
