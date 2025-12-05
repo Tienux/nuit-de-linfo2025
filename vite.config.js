@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
     plugins: [react()],
-    base: process.env.NODE_ENV === "production" ? "/nuit-de-linfo2025/" : "/"
+    base: "/"
 });
 
