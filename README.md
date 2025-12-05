@@ -1,16 +1,37 @@
-# React + Vite
+# Projet de la nuit de l'info 2025
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce projet a été réaliser dans le cadre de la nuit de l'info 2025.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Lancement projet
 
-## React Compiler
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### Installation des dépendances
 
-## Expanding the ESLint configuration
+```
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Lancement
+
+```
+npm run dev
+```
+
+### Site déployé
+https://tienux.github.io
+
+
+
+## Defi DECATHLON DIGITAL
+Le défi: 🏆 Devenez le CTO de Votre Santé Posturale
+
+
+Lien d'accès : http://localhost:5174/decathlon
+
+
+### choix techniques, difficultés rencontrées
+
+- Difficulté dans la gestion des programmes adaptés en fonction des réponses
+
+Pour les choix techniques, chaque question du QCM ajoute un score variable associé aux différents programmes. A la fin des questions, les scores associés sont comparés et le programme avec le score le plus élevé est considéré comme le plus adapté.

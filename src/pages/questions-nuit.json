@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Ton établissement scolaire a des PC sous Windows 10 qui ne seront plus supportés. Que fais-tu ?",
+      "options": [
+        { "text": "On achète des nouveaux PC, tant pis pour les anciens.", "isCorrect": false, "feedback": "Dommage ! C'est du gaspillage matériel." },
+        { "text": "On installe une distribution Linux légère (PrimTux, Linux Mint).", "isCorrect": true, "feedback": "Bravo ! C'est la solution NIRD : on prolonge la vie du matériel." },
+        { "text": "On force la mise à jour Windows 11 même si ça rame.", "isCorrect": false, "feedback": "Mauvaise idée, l'expérience utilisateur sera terrible." }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Tu dois partager des fichiers avec tes élèves. Quel outil privilégies-tu ?",
+      "options": [
+        { "text": "Google Drive ou OneDrive, c'est facile.", "isCorrect": false, "feedback": "Attention aux données hébergées hors UE (Patriot Act)." },
+        { "text": "Une clé USB qui passe de main en main.", "isCorrect": false, "feedback": "Risqué pour les virus et pas pratique !" },
+        { "text": "Un Nextcloud hébergé sur 'Apps.education.fr'.", "isCorrect": true, "feedback": "Excellent ! Souverain, RGPD et Open Source." }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "C'est quoi un 'Commun Numérique' ?",
+      "options": [
+        { "text": "Une ressource produite et gérée collectivement (comme Wikipédia).", "isCorrect": true, "feedback": "Exactement." },
+        { "text": "Un groupe Facebook privé.", "isCorrect": false, "feedback": "Non, ça appartient à Meta." },
+        { "text": "Une salle informatique partagée.", "isCorrect": false, "feedback": "C'est un lieu, pas une ressource numérique." }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Ton ordinateur devient lent, mais il fonctionne encore physiquement. Quelle est la réaction 'Village Résistant' ?",
+      "options": [
+        { "text": "Je le jette et j'achète le dernier modèle en promo.", "isCorrect": false, "feedback": "Aïe ! C'est mauvais pour la planète et le budget." },
+        { "text": "Je change le disque dur pour un SSD et j'ajoute de la RAM.", "isCorrect": true, "feedback": "Bien joué ! Le 'retrofitting' prolonge la vie du matériel de plusieurs années." },
+        { "text": "Je télécharge une application pour 'nettoyer la RAM'.", "isCorrect": false, "feedback": "Souvent inutile, voire dangereux si c'est un logiciel malveillant." }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "L'école doit renouveler ses licences de bureautique (traitement de texte, tableur). Que proposes-tu ?",
+      "options": [
+        { "text": "Payer des abonnements Microsoft Office pour tout le monde.", "isCorrect": false, "feedback": "C'est cher et ça enferme l'école dans un écosystème fermé." },
+        { "text": "Utiliser LibreOffice ou OnlyOffice.", "isCorrect": true, "feedback": "Exactement ! C'est gratuit, libre et ça lit les mêmes fichiers." },
+        { "text": "Demander aux élèves d'acheter leur propre logiciel.", "isCorrect": false, "feedback": "Ce n'est pas inclusif du tout !" }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Pourquoi préférer un service comme 'Apps.education.fr' plutôt que les outils des GAFAM ?",
+      "options": [
+        { "text": "Parce que c'est hébergé en France/UE et respecte le RGPD.", "isCorrect": true, "feedback": "Oui ! Tes données ne partent pas aux USA et restent protégées." },
+        { "text": "Parce que le logo est plus joli.", "isCorrect": false, "feedback": "C'est subjectif, mais ce n'est pas la raison principale !" },
+        { "text": "C'est juste pour embêter les géants américains.", "isCorrect": false, "feedback": "Non, c'est une question de souveraineté numérique, pas juste de contestation." }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Un 'Logiciel Libre', c'est quoi exactement ?",
+      "options": [
+        { "text": "Un logiciel gratuit mais rempli de publicités.", "isCorrect": false, "feedback": "Non, ça c'est un 'freeware' souvent douteux." },
+        { "text": "Un logiciel dont le code est ouvert, modifiable et partageable par tous.", "isCorrect": true, "feedback": "Bravo ! C'est la clé de l'indépendance technologique." },
+        { "text": "Un logiciel qu'on peut pirater sans risque.", "isCorrect": false, "feedback": "Pas du tout, le piratage reste illégal." }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Quelle action a le plus gros impact carbone dans une salle de classe ?",
+      "options": [
+        { "text": "Laisser les ordinateurs allumés tout le week-end.", "isCorrect": false, "feedback": "C'est mauvais, mais la fabrication du matériel pèse encore plus lourd." },
+        { "text": "Fabriquer et transporter les ordinateurs neufs.", "isCorrect": true, "feedback": "Correct ! 70 à 80% de l'impact vient de la fabrication. D'où l'importance de faire durer !" },
+        { "text": "Envoyer un email sans pièce jointe.", "isCorrect": false, "feedback": "C'est négligeable comparé au matériel." }
+      ]
+    }
+]
+}

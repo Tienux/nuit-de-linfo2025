@@ -5,6 +5,9 @@ import potionImg from "../images/potion.png";
 import tileImg from "../images/dalle.png";
 import helmetImg from "../images/casque.png";
 
+
+import Navbar from './Navbar';
+
 // ========================================
 // 🎮 CONFIGURATION DU JEU
 // ========================================
@@ -594,8 +597,10 @@ const SnakeGame = () => {
   // 🎨 RENDU DU COMPOSANT
   // ========================================
   return (
-    <div style={styles.container}>
-      <div style={styles.gameWrapper}>
+    <>
+      <Navbar />
+      <div style={styles.container}>
+        <div style={styles.gameWrapper}>
         {/* 📖 LÉGENDE DES POWER-UPS */}
         <div
           className="nes-container is-rounded"
@@ -708,6 +713,13 @@ const SnakeGame = () => {
                 className="nes-container is-rounded is-dark"
                 style={styles.message}
               >
+                <button
+                  style={styles.closeButton}
+                  onClick={() => window.history.back()}
+                  title="Fermer"
+                >
+                  ✕
+                </button>
                 <p style={{ margin: "0 0 10px 0" }}>🎮 Par Toutatis !</p>
                 <p style={{ margin: "0 0 5px 0", fontSize: "12px" }}>
                   ⬆️⬇️⬅️➡️ ou ZQSD
@@ -752,6 +764,13 @@ const SnakeGame = () => {
                 className="nes-container is-rounded is-dark"
                 style={styles.message}
               >
+                <button
+                  style={styles.closeButton}
+                  onClick={() => window.history.back()}
+                  title="Fermer"
+                >
+                  ✕
+                </button>
                 <p style={{ margin: "0 0 10px 0", fontSize: "16px" }}>
                   💀 PAR BÉLÉNOS !
                 </p>
@@ -782,6 +801,13 @@ const SnakeGame = () => {
                 className="nes-container is-rounded is-dark"
                 style={styles.message}
               >
+                <button
+                  style={styles.closeButton}
+                  onClick={() => window.history.back()}
+                  title="Fermer"
+                >
+                  ✕
+                </button>
                 <p style={{ margin: 0 }}>⏸️ PAUSE</p>
                 <p
                   style={{
@@ -1011,6 +1037,7 @@ const SnakeGame = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
@@ -1052,9 +1079,31 @@ const styles = {
     zIndex: 10,
   },
   message: {
-    padding: "20px",
+    padding: "15px 30px 15px 15px",
     textAlign: "center",
     color: "#9bbc0f",
+    position: "relative",
+    maxWidth: "300px",
+    minHeight: "120px",
+  },
+  closeButton: {
+    position: "absolute",
+    top: "20px",
+    right: "15px",
+    background: "none",
+    border: "none",
+    color: "#9bbc0f",
+    fontSize: "20px",
+    cursor: "pointer",
+    padding: "0",
+    width: "24px",
+    height: "24px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "50%",
+    opacity: 0.9,
+    transition: "opacity 0.2s",
   },
   instructions: {
     marginTop: "15px",
