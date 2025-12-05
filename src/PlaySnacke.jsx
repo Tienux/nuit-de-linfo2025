@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
+import SnakeGame from './components/SnakeGame';
 
 export default function PlayGame() {
     const [draggedLetters, setDraggedLetters] = useState([]);
@@ -8,6 +9,7 @@ export default function PlayGame() {
     const [isCorrect, setIsCorrect] = useState(false);
     const [showError, setShowError] = useState(false);
     const [returningLetters, setReturningLetters] = useState([]);
+    const [showSnakeGame, setShowSnakeGame] = useState(false);
 
     const correctWord = 'GAFAM';
 
@@ -568,10 +570,65 @@ export default function PlayGame() {
 
             {showSnackbar && (
                 <div className="snes-snackbar">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                        <Check className="snes-icon" />
-                        <span>🎉 Bravo! Vous avez découvert GAFAM!</span>
-                        
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexDirection: 'column' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                            <Check className="snes-icon" />
+                            <span>🎉 Bravo! Vous avez découvert GAFAM!</span>
+                        </div>
+                        <button
+                            onClick={() => setShowSnakeGame(true)}
+                            className="snes-button active"
+                            style={{ fontSize: '0.6rem', padding: '0.5rem 1rem', marginTop: '1rem' }}
+                        >
+                            🐍 Jouer au Snake!
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {showSnakeGame && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                    zIndex: 2000,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <div style={{
+                        position: 'relative',
+                        background: '#000',
+                        border: '4px solid #fff',
+                        borderRadius: '8px',
+                        padding: '1rem'
+                    }}>
+                        <button
+                            onClick={() => setShowSnakeGame(false)}
+                            style={{
+                                position: 'absolute',
+                                top: '-10px',
+                                right: '-10px',
+                                background: '#ff0000',
+                                color: '#fff',
+                                border: '2px solid #fff',
+                                borderRadius: '50%',
+                                width: '30px',
+                                height: '30px',
+                                cursor: 'pointer',
+                                fontSize: '1rem',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontFamily: 'Arial, sans-serif'
+                            }}
+                        >
+                            ✕
+                        </button>
+                        <SnakeGame />
                     </div>
                 </div>
             )}

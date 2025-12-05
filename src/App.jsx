@@ -6,6 +6,7 @@ import PresentationProjet from './pages/PresentationProjet'
 import QuizNird from './pages/Nuit-qcm'
 import PlayGame from './PlaySnacke.jsx'
 import './App.css'
+import Home from './pages/Home.jsx'
 
 function AppContent() {
   const navigate = useNavigate()
@@ -48,8 +49,8 @@ function AppContent() {
   const zones = [
     {
       id: 'home',
-      name: 'Acceuil📔',
-      path: '/',
+      name: 'Home📔',
+      path: '/home',
       style: { top: '10%', left: '21%', width: '120px', height: '100px' }
     },
     {
