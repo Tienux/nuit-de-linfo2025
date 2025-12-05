@@ -90,7 +90,7 @@ function AppContent() {
         <title>Nuit de l'Info 2025</title>
         <link rel="shortcut icon" href="images/asterix.svg" type="image/svg+xml" />
         <nav onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-          <img src="/images/asterix.png" alt="asterix" style={{width: 100}}/>
+          <img src={`${import.meta.env.BASE_URL}images/asterix.png`} alt="asterix" style={{width: 100}}/>
         </nav>
         <p className="title">Nuit de l'Info 2025</p>
         <h1 style={{ marginTop: '10px' }}>
@@ -119,7 +119,7 @@ function AppContent() {
           overflow: 'hidden'
         }}>
           <img 
-            src="/images/asterix_carte.png"
+            src={`${import.meta.env.BASE_URL}images/asterix_carte.png`}
             alt="Carte Asterix"
             style={{ 
               width: '100%', 
@@ -169,7 +169,7 @@ function AppContent() {
           {/* Serpent caché Easter Egg */}
           {showSnake && (
             <img 
-              src="/images/snake.png"
+              src={`${import.meta.env.BASE_URL}images/snake.png`}
               alt="Serpent caché"
               onClick={() => navigate('/snake')}
               style={{
