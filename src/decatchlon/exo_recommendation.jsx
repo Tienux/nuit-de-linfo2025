@@ -182,7 +182,7 @@ function UserRecommendation({ userProfile, onBack }) {
                   )}
                 </div>
                 <button className="snes-button has-nature-color" style={{ width: '100%', fontSize: '0.9em' }}>
-                  Voir les instructions
+                  Instructions
                 </button>
               </div>
             ))}
