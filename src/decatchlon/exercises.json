@@ -1,56 +1,305 @@
 {
-  "exercises": [
-    {
-      "id": "squat_basic",
-      "name": "Squat classique",
-      "goal": ["muscle", "poids"],
-      "equipment": ["bodyweight", "tapis", "Rien"],
-      "duration": 15,
-      "targetArea": ["bas", "Tout"],
-      "avoidIf": [],
-      "difficulty": "Débutant",
-      "instructions": [
-        "Pieds écartés largeur d'épaules",
-        "Descends en poussant les fesses vers l'arrière",
-        "Garde le dos droit, poitrine relevée",
-        "Descends jusqu'à avoir cuisses parallèles au sol",
-        "Remonte en poussant sur les talons"
+  "programmes": {
+    "p1": {
+      "id": "p1",
+      "nom": "Programme Force & Tonus",
+      "objectif_principal": "Développer la force musculaire et la tonicité",
+      "niveau_recommandé": "Débutant à Intermédiaire",
+      "mouvements": [
+        {
+          "id": "p1_m1",
+          "nom": "Squat de base",
+          "description": "Exercice fondamental pour renforcer les jambes et les fessiers",
+          "instructions": [
+            "Tenez-vous debout, pieds écartés largeur épaules",
+            "Pointes de pieds légèrement vers l'extérieur (15-30 degrés)",
+            "Gardez le dos droit, regard vers l'avant",
+            "Inspirez et descendez comme pour vous asseoir",
+            "Fléchissez les genoux jusqu'à ce que les cuisses soient parallèles au sol",
+            "Gardez les genoux alignés avec les orteils (ne pas les laisser s'effondrer)",
+            "Les talons restent collés au sol",
+            "Expirez et remontez en poussant avec les talons",
+            "Contractez les fessiers en haut du mouvement"
+          ],
+          "conseils_technique": [
+            "Ne jamais arrondir le dos pendant le mouvement",
+            "Contrôler la descente, ne pas se laisser tomber",
+            "Garder le poids sur les talons, pas sur les orteils",
+            "Maintenir le tronc engagé pour la stabilité"
+          ],
+          "series": 3,
+          "repetitions": "12-15",
+          "temps_repos": "60 secondes",
+          "muscles_cibles": ["Quadriceps", "Fessiers", "Ischio-jambiers"],
+          "difficulte": 3
+        },
+        {
+          "id": "p1_m2",
+          "nom": "Pompes sur les genoux",
+          "description": "Variante accessible pour renforcer le haut du corps",
+          "instructions": [
+            "Commencez à quatre pattes, mains légèrement plus larges que les épaules",
+            "Avancez les mains pour que le corps forme une ligne oblique",
+            "Gardez le dos droit des genoux à la tête",
+            "Contractez les abdominaux pour maintenir l'alignement",
+            "Inspirez et descendez lentement en pliant les coudes",
+            "Les coudes forment un angle de 45 degrés par rapport au corps",
+            "Descendez jusqu'à ce que la poitrine soit proche du sol",
+            "Expirez et poussez pour revenir à la position de départ"
+          ],
+          "conseils_technique": [
+            "Garder les coudes pas trop écartés",
+            "Ne pas laisser le bassin s'affaisser",
+            "Maintenir la tête dans l'alignement de la colonne",
+            "Contrôler le mouvement dans les deux phases"
+          ],
+          "series": 3,
+          "repetitions": "8-12",
+          "temps_repos": "90 secondes",
+          "muscles_cibles": ["Pectoraux", "Triceps", "Deltoïdes antérieurs"],
+          "difficulte": 2
+        },
+        {
+          "id": "p1_m3",
+          "nom": "Planche abdominale",
+          "description": "Exercice de gainage pour renforcer la sangle abdominale",
+          "instructions": [
+            "Allongez-vous face contre terre",
+            "Placez les avant-bras au sol, coudes sous les épaules",
+            "Soulevez le corps en appui sur les avant-bras et les orteils",
+            "Corps aligné de la tête aux pieds comme une planche",
+            "Contractez les abdominaux comme pour rentrer le nombril vers la colonne",
+            "Contractez les fessiers pour stabiliser le bassin",
+            "Gardez le regard vers le sol",
+            "Respirez normalement sans bloquer la respiration",
+            "Maintenez la position le temps prescrit"
+          ],
+          "conseils_technique": [
+            "Ne pas laisser les hanches s'affaisser ou se lever trop haut",
+            "Éviter de retenir la respiration",
+            "Ne pas cambrer le dos",
+            "Si douleurs lombaires, arrêtez immédiatement"
+          ],
+          "series": 3,
+          "temps_maintenu": "30-45 secondes",
+          "temps_repos": "30 secondes",
+          "muscles_cibles": ["Grand droit", "Transverse", "Obliques"],
+          "difficulte": 3
+        }
       ],
-      "mistakes": [
-        "❌ Genoux qui dépassent les orteils",
-        "❌ Dos rond"
+      "structure_seance": [
+        "Échauffement: 5 minutes de mouvements articulaires",
+        "Squat: 3 séries de 12-15 répétitions (repos 60s)",
+        "Pompes sur les genoux: 3 séries de 8-12 répétitions (repos 90s)",
+        "Planche: 3 séries de 30-45 secondes (repos 30s)",
+        "Retour au calme: 5 minutes d'étirements légers"
       ],
-      "tips": [
-        "✅ Poids sur les talons",
-        "✅ Respire : inspire en descendant"
-      ],
-      "reps": "3 séries de 12-15 répétitions"
+      "duree_totale": "30 minutes",
+      "frequence_recommandee": "3 fois par semaine"
     },
-    {
-      "id": "plank",
-      "name": "Planche (gainage)",
-      "goal": ["muscle", "souplesse", "Rééducation"],
-      "equipment": ["bodyweight", "tapis", "Rien"],
-      "duration": 15,
-      "targetArea": ["abdominale", "Tout"],
-      "avoidIf": [],
-      "difficulty": "Débutant",
-      "instructions": [
-        "Position sur les avant-bras",
-        "Coudes sous les épaules",
-        "Corps aligné : tête, dos, jambes en ligne droite",
-        "Contracte abdos et fessiers",
-        "Maintiens la position"
+    "p2": {
+      "id": "p2",
+      "nom": "Programme Brûle-graisses",
+      "objectif_principal": "Accélérer la perte de poids et améliorer le cardio",
+      "niveau_recommandé": "Intermédiaire à Avancé",
+      "mouvements": [
+        {
+          "id": "p2_m1",
+          "nom": "Burpees simplifiés",
+          "description": "Exercice complet pour brûler un maximum de calories",
+          "instructions": [
+            "Debout, pieds écartés largeur épaules",
+            "Accroupissez-vous en plaçant les mains au sol",
+            "Lancez les pieds en arrière pour arriver en position de planche",
+            "Touchez le sol avec la poitrine (pas besoin de pompe complète)",
+            "Ramenez rapidement les pieds vers les mains",
+            "Levez-vous et sautez en tapant des mains au-dessus de la tête",
+            "Atterrissez en douceur avec les genoux fléchis",
+            "Enchaînez immédiatement avec la répétition suivante"
+          ],
+          "conseils_technique": [
+            "Atterrir toujours avec les genoux fléchis pour amortir",
+            "Garder le rythme constant mais contrôlé",
+            "Ne pas sacrifier la technique pour la vitesse",
+            "Bien respirer: inspirez en descendant, expirez en remontant"
+          ],
+          "series": 4,
+          "repetitions": "10-15",
+          "temps_repos": "60 secondes",
+          "muscles_cibles": ["Pectoraux", "Quadriceps", "Fessiers", "Épaules"],
+          "difficulte": 4
+        },
+        {
+          "id": "p2_m2",
+          "nom": "Mountain Climbers",
+          "description": "Exercice dynamique pour le cardio et le renforcement abdominal",
+          "instructions": [
+            "Commencez en position de planche haute (mains sous les épaules)",
+            "Corps aligné de la tête aux pieds",
+            "Contractez les abdominaux pour maintenir l'alignement",
+            "Ramenez rapidement le genou droit vers la poitrine",
+            "Replacez le pied droit en position de départ",
+            "Ramenez rapidement le genou gauche vers la poitrine",
+            "Alternez les jambes à un rythme soutenu",
+            "Gardez les hanches basses et stables"
+          ],
+          "conseils_technique": [
+            "Maintenir le bassin stable, ne pas le laisser monter",
+            "Garder les épaules au-dessus des poignets",
+            "Contrôler le mouvement, ne pas précipiter",
+            "Respirer régulièrement malgré l'effort"
+          ],
+          "series": 4,
+          "temps_maintenu": "30-45 secondes",
+          "temps_repos": "30 secondes",
+          "muscles_cibles": ["Abdominaux", "Deltoïdes", "Quadriceps", "Fessiers"],
+          "difficulte": 3
+        },
+        {
+          "id": "p2_m3",
+          "nom": "Sauts avec écart",
+          "description": "Exercice cardio explosif pour brûler des calories",
+          "instructions": [
+            "Debout, pieds joints, bras le long du corps",
+            "Fléchissez légèrement les genoux en préparation",
+            "Sautez en écartant les jambes sur les côtés",
+            "Simultanément, levez les bras latéralement jusqu'à hauteur d'épaules",
+            "Atterrissez avec les pieds écartés, genoux fléchis",
+            "Sautez immédiatement pour revenir à la position initiale",
+            "Atterrissez avec les pieds joints",
+            "Continuez à un rythme régulier"
+          ],
+          "conseils_technique": [
+            "Atterrir toujours en flexion pour amortir l'impact",
+            "Garder le tronc engagé pendant les sauts",
+            "Contrôler l'atterrissage, éviter les chocs",
+            "Maintenir un bon rythme respiratoire"
+          ],
+          "series": 4,
+          "repetitions": "20-30",
+          "temps_repos": "45 secondes",
+          "muscles_cibles": ["Quadriceps", "Fessiers", "Deltoïdes", "Cardio"],
+          "difficulte": 3
+        }
       ],
-      "mistakes": [
-        "❌ Fesses trop hautes",
-        "❌ Dos cambré"
+      "structure_seance": [
+        "Échauffement dynamique: 8 minutes (jogging sur place, jumping jacks)",
+        "Circuit (répéter 3-4 fois):",
+        "  - Burpees: 45 secondes / repos 15 secondes",
+        "  - Mountain Climbers: 45 secondes / repos 15 secondes",
+        "  - Sauts avec écart: 45 secondes / repos 15 secondes",
+        "Repos complet: 2 minutes entre les circuits",
+        "Retour au calme: 5 minutes d'étirements"
       ],
-      "tips": [
-        "✅ Imagine une planche droite",
-        "✅ Respire calmement"
+      "duree_totale": "45 minutes",
+      "frequence_recommandee": "4 fois par semaine"
+    },
+    "p3": {
+      "id": "p3",
+      "nom": "Programme Souplesse & Mobilité",
+      "objectif_principal": "Améliorer la flexibilité et prévenir les blessures",
+      "niveau_recommandé": "Tous niveaux",
+      "mouvements": [
+        {
+          "id": "p3_m1",
+          "nom": "Chien tête en bas",
+          "description": "Posture de yoga pour étirer tout le corps",
+          "instructions": [
+            "Commencez à quatre pattes, mains sous les épaules",
+            "Écartez les doigts et appuyez fermement les paumes",
+            "Inspirez et soulevez les genoux du sol",
+            "Redressez les jambes autant que possible",
+            "Poussez les hanches vers le haut et l'arrière",
+            "Formez un V inversé avec votre corps",
+            "Les pieds sont à la largeur des hanches, talons vers le sol",
+            "Gardez les genoux légèrement fléchis si nécessaire",
+            "La tête est relâchée entre les bras",
+            "Maintenez la position pendant 5-10 respirations profondes"
+          ],
+          "conseils_technique": [
+            "Ne pas bloquer les coudes, garder un micro-pli",
+            "Allonger la colonne en poussant le sol avec les mains",
+            "Ne pas forcer pour poser les talons au sol",
+            "Respirer profondément et lentement"
+          ],
+          "series": 3,
+          "temps_maintenu": "30-60 secondes",
+          "temps_repos": "30 secondes",
+          "muscles_cibles": ["Ischio-jambiers", "Mollets", "Dos", "Épaules"],
+          "difficulte": 3
+        },
+        {
+          "id": "p3_m2",
+          "nom": "Posture de l'enfant",
+          "description": "Étirement relaxant pour le dos et les hanches",
+          "instructions": [
+            "Asseyez-vous sur les talons, genoux écartés largeur tapis",
+            "Penchez-vous en avant en allongeant le tronc entre les genoux",
+            "Avant-bras au sol, paumes vers le bas",
+            "Front déposé doucement sur le sol",
+            "Relâchez complètement les épaules vers le sol",
+            "Laissez le poids du corps s'étirer vers l'avant",
+            "Respirez profondément en sentant l'étirement dans le dos",
+            "Restez dans cette position de détente",
+            "Pour sortir, ramenez doucement le corps vers l'arrière"
+          ],
+          "conseils_technique": [
+            "Ne pas forcer l'étirement, se laisser aller",
+            "Respirer profondément pour relâcher les tensions",
+            "Si le front ne touche pas le sol, utilisez un coussin",
+            "Garder les fessiers sur les talons"
+          ],
+          "series": 3,
+          "temps_maintenu": "45-60 secondes",
+          "temps_repos": "20 secondes",
+          "muscles_cibles": ["Dos", "Hanches", "Cuisines", "Épaules"],
+          "difficulte": 1
+        },
+        {
+          "id": "p3_m3",
+          "nom": "Étirement des ischio-jambiers assis",
+          "description": "Amélioration de la flexibilité des jambes",
+          "instructions": [
+            "Asseyez-vous au sol, une jambe tendue devant vous",
+            "L'autre jambe est pliée, pied contre la cuisse opposée",
+            "Dos droit, épaules relâchées",
+            "Inspirez et allongez la colonne vertébrale",
+            "Expirez et penchez-vous lentement vers la jambe tendue",
+            "Attrapez votre pied, votre cheville ou votre tibia",
+            "Gardez le dos le plus droit possible",
+            "Ne tirez pas brusquement, laissez la gravité agir",
+            "Maintenez l'étirement sans à-coups",
+            "Respirez profondément pendant toute la durée"
+          ],
+          "conseils_technique": [
+            "Ne pas arrondir le dos, garder la colonne longue",
+            "Éviter les à-coups, étirement progressif",
+            "Si vous ne pouvez pas attraper le pied, utilisez une sangle",
+            "Rester dans la zone d'étirement confortable, pas de douleur"
+          ],
+          "series": 3,
+          "temps_maintenu": "30 secondes par jambe",
+          "temps_repos": "15 secondes",
+          "muscles_cibles": ["Ischio-jambiers", "Mollets", "Dos"],
+          "difficulte": 2
+        }
       ],
-      "reps": "3 séries de 30-60 secondes"
+      "structure_seance": [
+        "Relaxation initiale: 3 minutes de respiration consciente",
+        "Mobilisations articulaires douces: 5 minutes",
+        "Chien tête en bas: 3 séries de 30-60 secondes",
+        "Posture de l'enfant: 3 séries de 45-60 secondes",
+        "Étirement ischio-jambiers: 3 séries de 30 secondes par jambe",
+        "Étirements complémentaires au choix: 10 minutes",
+        "Relaxation finale: 5 minutes en posture de l'enfant"
+      ],
+      "duree_totale": "30 minutes",
+      "frequence_recommandee": "5-7 fois par semaine"
     }
-  ]
+  },
+  "correspondance_programmes": {
+    "p1": "Me muscler / Haut-Bas-Tout le corps / 30-45 minutes / Fréquence régulière",
+    "p2": "Perdre du poids / Tout le corps / 45-60 minutes / Fréquence élevée",
+    "p3": "Gagner en souplesse / Toutes parties / 15-30 minutes / Fréquence quotidienne"
+  }
 }

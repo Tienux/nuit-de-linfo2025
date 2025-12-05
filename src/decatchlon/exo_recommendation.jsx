@@ -1,99 +1,42 @@
 import { useState, useEffect } from 'react'
 import './exo_recommendation.css'
-import exercisesData from './exercises.json'
+import programmesData from './exercises.json'
 
-function UserRecommendation({ userProfile }) {
-  const [recommendedExercises, setRecommendedExercises] = useState([])
-  const [selectedExercise, setSelectedExercise] = useState(null)
+function UserRecommendation({ userProfile, onBack }) {
+  const [recommendedProgramme, setRecommendedProgramme] = useState(null)
+  const [selectedMovement, setSelectedMovement] = useState(null)
 
   useEffect(() => {
     if (userProfile && Object.keys(userProfile).length > 0) {
-      const exercises = getRecommendedExercises(userProfile)
-      setRecommendedExercises(exercises)
+      const programme = getRecommendedProgramme(userProfile)
+      setRecommendedProgramme(programme)
     }
   }, [userProfile])
 
-  const getRecommendedExercises = (profile) => {
-    const exercises = exercisesData.exercises || []
+  const getRecommendedProgramme = (profile) => {
+    // Calculer les scores pour chaque programme
+    const scores = { p1: 0, p2: 0, p3: 0 }
     
-    // Extraire les infos du profil utilisateur
-    const goal = profile.question_1?.answer || ''
-    const frequency = profile.question_2?.answer || ''
-    const equipment = profile.question_3?.answer || ''
-    const duration = profile.question_4?.answerIndex || 0
-    const targetArea = profile.question_5?.answer || ''
-    const injuries = profile.question_6?.answer || ''
-    
-    // Mapper les durées (index vers minutes)
-    const durationMap = [15, 30, 45, 60]
-    const userDuration = durationMap[duration]
-    
-    // Filtrer les exercices
-    let filtered = exercises.filter(ex => {
-      // Vérifier l'objectif
-      if (ex.goal && !ex.goal.some(g => goal.toLowerCase().includes(g.toLowerCase()))) {
-        return false
-      }
-      
-      // Vérifier l'équipement
-      if (ex.equipment) {
-        const hasEquipment = ex.equipment.some(eq => 
-          equipment.toLowerCase().includes(eq.toLowerCase()) ||
-          (equipment.includes('Rien') && eq === 'bodyweight') ||
-          (equipment.includes('tapis') && (eq === 'mat' || eq === 'bodyweight'))
-        )
-        if (!hasEquipment) return false
-      }
-      
-      // Vérifier la durée
-      if (ex.duration && ex.duration > userDuration) {
-        return false
-      }
-      
-      // Vérifier la zone ciblée
-      if (ex.targetArea) {
-        const matchesArea = ex.targetArea.some(area => {
-          if (targetArea.includes('haut')) return area === 'upper'
-          if (targetArea.includes('bas')) return area === 'lower'
-          if (targetArea.includes('abdominale')) return area === 'core'
-          if (targetArea.includes('Tout')) return area === 'fullbody'
-          return false
+    // Parcourir toutes les réponses du profil
+    Object.values(profile).forEach(answer => {
+      if (answer.scores) {
+        // Ajouter les scores de cette réponse
+        Object.entries(answer.scores).forEach(([prog, points]) => {
+          scores[prog] += points
         })
-        if (!matchesArea) return false
       }
-      
-      // Éviter si blessure
-      if (ex.avoidIf && injuries !== 'Non, je suis en pleine forme') {
-        const hasConflict = ex.avoidIf.some(avoid => {
-          if (injuries.includes('genoux')) return avoid === 'knees'
-          if (injuries.includes('dos')) return avoid === 'back'
-          if (injuries.includes('poignets')) return avoid === 'wrists'
-          return false
-        })
-        if (hasConflict) return false
-      }
-      
-      return true
     })
     
-    // Si pas assez de résultats, être plus permissif
-    if (filtered.length < 3) {
-      filtered = exercises.filter(ex => {
-        if (ex.duration && ex.duration > userDuration) return false
-        if (ex.avoidIf && injuries !== 'Non, je suis en pleine forme') {
-          const hasConflict = ex.avoidIf.some(avoid => {
-            if (injuries.includes('genoux')) return avoid === 'knees'
-            if (injuries.includes('dos')) return avoid === 'back'
-            if (injuries.includes('poignets')) return avoid === 'wrists'
-            return false
-          })
-          if (hasConflict) return false
-        }
-        return true
-      })
-    }
+    console.log('📊 Scores calculés:', scores)
     
-    return filtered.slice(0, 6)
+    // Trouver le programme avec le score le plus élevé
+    const bestProgrammeId = Object.entries(scores)
+      .sort((a, b) => b[1] - a[1])[0][0]
+    
+    console.log('🏆 Meilleur programme:', bestProgrammeId)
+    
+    // Retourner le programme correspondant
+    return programmesData.programmes[bestProgrammeId]
   }
 
   if (!userProfile || Object.keys(userProfile).length === 0) {
@@ -108,134 +51,204 @@ function UserRecommendation({ userProfile }) {
     )
   }
 
+  if (!recommendedProgramme) {
+    return (
+      <div className="recommendation-container">
+        <blockquote className="snes-blockquote has-ember-bg">
+          <p className="text-sunshine-color">
+            ⚠️ Impossible de déterminer un programme adapté.
+          </p>
+        </blockquote>
+      </div>
+    )
+  }
+
   return (
     <div className="recommendation-container">
       <div className="recommendation-content">
-        {/* Header */}
+        {/* Header avec nom du programme */}
         <blockquote className="snes-blockquote has-turquoise-bg">
           <h1 className="text-sunshine-color" style={{ fontSize: '2em', marginBottom: '10px' }}>
-            💪 Tes exercices personnalisés
+            🏆 {recommendedProgramme.nom}
           </h1>
-          <p className="text-nature-color">
-            Basé sur ton profil, voici {recommendedExercises.length} exercices adaptés pour toi !
+          <p className="text-nature-color" style={{ fontSize: '1.1em' }}>
+            {recommendedProgramme.objectif_principal}
           </p>
-        </blockquote>
-
-        {/* Résumé du profil */}
-        <div style={{ marginTop: '30px', marginBottom: '30px' }}>
-          <h2 className="text-ocean-color" style={{ marginBottom: '15px' }}>
-            📋 Ton profil en bref :
-          </h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+          <div style={{ marginTop: '15px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <span className="profile-badge has-plumber-color">
-              🎯 {userProfile.question_1?.answer}
+              📊 Niveau: {recommendedProgramme.niveau_recommandé}
             </span>
             <span className="profile-badge has-nature-color">
-              🏋️ {userProfile.question_2?.answer}
-            </span>
-            <span className="profile-badge has-turquoise-color">
-              🛠️ {userProfile.question_3?.answer}
+              ⏱️ {recommendedProgramme.duree_totale}
             </span>
             <span className="profile-badge has-sunshine-color">
-              ⏱️ {userProfile.question_4?.answer}
+              📅 {recommendedProgramme.frequence_recommandee}
             </span>
-            <span className="profile-badge has-phantom-color">
-              🎪 {userProfile.question_5?.answer}
-            </span>
-            {userProfile.question_6?.answer !== 'Non, je suis en pleine forme' && (
-              <span className="profile-badge has-ember-color">
-                ⚠️ {userProfile.question_6?.answer}
-              </span>
-            )}
           </div>
+        </blockquote>
+
+        {/* Structure de la séance */}
+        <div style={{ marginTop: '30px' }}>
+          <h2 className="text-ocean-color" style={{ marginBottom: '15px' }}>
+            📋 Structure de la séance :
+          </h2>
+          <blockquote className="snes-blockquote has-phantom-bg">
+            <ul className="snes-list is-nature-list-color">
+              {recommendedProgramme.structure_seance.map((etape, i) => (
+                <li key={i} style={{ marginBottom: '8px', fontSize: '0.95em' }}>
+                  {etape}
+                </li>
+              ))}
+            </ul>
+          </blockquote>
         </div>
 
-        {/* Liste des exercices */}
-        {recommendedExercises.length === 0 ? (
-          <blockquote className="snes-blockquote has-ember-bg">
-            <p className="text-sunshine-color">
-              😕 Aucun exercice ne correspond exactement à ton profil. Ton collègue doit ajouter plus d'exercices dans exercises.json !
-            </p>
-          </blockquote>
-        ) : (
+        {/* Liste des mouvements */}
+        <div style={{ marginTop: '30px' }}>
+          <h2 className="text-ocean-color" style={{ marginBottom: '15px' }}>
+            💪 Les mouvements détaillés :
+          </h2>
           <div className="exercises-grid">
-            {recommendedExercises.map((exercise) => (
+            {recommendedProgramme.mouvements.map((movement) => (
               <div
-                key={exercise.id}
+                key={movement.id}
                 className="exercise-card"
-                onClick={() => setSelectedExercise(exercise)}
+                onClick={() => setSelectedMovement(movement)}
               >
                 <h3 className="text-turquoise-color" style={{ marginBottom: '10px' }}>
-                  {exercise.name}
+                  {movement.nom}
                 </h3>
+                <p style={{ fontSize: '0.9em', color: '#aaa', marginBottom: '15px' }}>
+                  {movement.description}
+                </p>
                 <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '10px' }}>
-                  <span className="exercise-tag">⏱️ {exercise.duration} min</span>
-                  <span className="exercise-tag">💪 {exercise.difficulty || 'Débutant'}</span>
-                  {exercise.equipment && (
-                    <span className="exercise-tag">🛠️ {exercise.equipment[0]}</span>
+                  <span className="exercise-tag">
+                    📊 Difficulté {movement.difficulte}/5
+                  </span>
+                  {movement.series && (
+                    <span className="exercise-tag">
+                      🔢 {movement.series} séries
+                    </span>
+                  )}
+                  {movement.repetitions && (
+                    <span className="exercise-tag">
+                      ✖️ {movement.repetitions} reps
+                    </span>
+                  )}
+                  {movement.temps_maintenu && (
+                    <span className="exercise-tag">
+                      ⏱️ {movement.temps_maintenu}
+                    </span>
                   )}
                 </div>
-                <p style={{ fontSize: '0.9em', color: '#aaa', marginBottom: '10px' }}>
-                  {exercise.reps}
-                </p>
-                <button className="snes-button has-nature-color" style={{ width: '100%' }}>
-                  Voir les détails
+                <button className="snes-button has-nature-color" style={{ width: '100%', fontSize: '0.9em' }}>
+                  Voir les instructions
                 </button>
               </div>
             ))}
           </div>
-        )}
+        </div>
 
-        {/* Modal détails exercice */}
-        {selectedExercise && (
-          <div className="exercise-modal" onClick={() => setSelectedExercise(null)}>
+        {/* Bouton retour */}
+        <div style={{ marginTop: '40px', textAlign: 'center' }}>
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="snes-button has-phantom-color"
+              style={{ fontSize: '1em', padding: '12px 24px', marginRight: '10px' }}
+            >
+              ⬅️ Retour au profil
+            </button>
+          )}
+          <button
+            onClick={() => window.location.reload()}
+            className="snes-button has-ember-color"
+            style={{ fontSize: '1em', padding: '12px 24px' }}
+          >
+            🔄 Recommencer
+          </button>
+        </div>
+
+        {/* Modal détails mouvement */}
+        {selectedMovement && (
+          <div className="exercise-modal" onClick={() => setSelectedMovement(null)}>
             <div className="exercise-modal-content" onClick={(e) => e.stopPropagation()}>
               <blockquote className="snes-blockquote has-ocean-bg">
-                <h2 className="text-sunshine-color" style={{ fontSize: '1.8em', marginBottom: '20px' }}>
-                  {selectedExercise.name}
+                <h2 className="text-sunshine-color" style={{ fontSize: '1.8em', marginBottom: '10px' }}>
+                  {selectedMovement.nom}
                 </h2>
+                <p style={{ fontSize: '1em', marginBottom: '20px', color: '#aaa' }}>
+                  {selectedMovement.description}
+                </p>
 
-                {/* Instructions */}
-                <h3 className="text-turquoise-color" style={{ marginTop: '20px', marginBottom: '10px' }}>
-                  📋 Instructions :
+                {/* Informations pratiques */}
+                <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  {selectedMovement.series && (
+                    <span className="profile-badge has-nature-color">
+                      🔢 {selectedMovement.series} séries
+                    </span>
+                  )}
+                  {selectedMovement.repetitions && (
+                    <span className="profile-badge has-plumber-color">
+                      ✖️ {selectedMovement.repetitions} répétitions
+                    </span>
+                  )}
+                  {selectedMovement.temps_maintenu && (
+                    <span className="profile-badge has-sunshine-color">
+                      ⏱️ {selectedMovement.temps_maintenu}
+                    </span>
+                  )}
+                  {selectedMovement.temps_repos && (
+                    <span className="profile-badge has-turquoise-color">
+                      😮‍💨 Repos: {selectedMovement.temps_repos}
+                    </span>
+                  )}
+                </div>
+
+                {/* Muscles ciblés */}
+                {selectedMovement.muscles_cibles && (
+                  <div style={{ marginBottom: '20px' }}>
+                    <h3 className="text-turquoise-color" style={{ marginBottom: '10px' }}>
+                      🎯 Muscles ciblés :
+                    </h3>
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                      {selectedMovement.muscles_cibles.map((muscle, i) => (
+                        <span key={i} className="exercise-tag" style={{ backgroundColor: '#22c55e', color: '#fff' }}>
+                          {muscle}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Instructions détaillées */}
+                <h3 className="text-nature-color" style={{ marginTop: '20px', marginBottom: '10px' }}>
+                  📋 Instructions pas à pas :
                 </h3>
                 <ul className="snes-list is-nature-list-color">
-                  {selectedExercise.instructions?.map((step, i) => (
-                    <li key={i} style={{ marginBottom: '8px' }}>{step}</li>
+                  {selectedMovement.instructions?.map((step, i) => (
+                    <li key={i} style={{ marginBottom: '8px', fontSize: '0.95em' }}>
+                      {step}
+                    </li>
                   ))}
                 </ul>
 
-                {/* Erreurs courantes */}
-                {selectedExercise.mistakes && selectedExercise.mistakes.length > 0 && (
+                {/* Conseils techniques */}
+                {selectedMovement.conseils_technique && selectedMovement.conseils_technique.length > 0 && (
                   <>
-                    <h3 className="text-ember-color" style={{ marginTop: '20px', marginBottom: '10px' }}>
-                      ⚠️ Erreurs courantes :
+                    <h3 className="text-sunshine-color" style={{ marginTop: '20px', marginBottom: '10px' }}>
+                      💡 Conseils techniques :
                     </h3>
-                    {selectedExercise.mistakes.map((mistake, i) => (
-                      <p key={i} style={{ fontSize: '0.95em', marginBottom: '5px' }}>{mistake}</p>
+                    {selectedMovement.conseils_technique.map((conseil, i) => (
+                      <p key={i} style={{ fontSize: '0.9em', marginBottom: '8px', paddingLeft: '10px', borderLeft: '3px solid #fbbf24' }}>
+                        {conseil}
+                      </p>
                     ))}
                   </>
                 )}
-
-                {/* Conseils */}
-                {selectedExercise.tips && selectedExercise.tips.length > 0 && (
-                  <>
-                    <h3 className="text-nature-color" style={{ marginTop: '20px', marginBottom: '10px' }}>
-                      ✅ Conseils :
-                    </h3>
-                    {selectedExercise.tips.map((tip, i) => (
-                      <p key={i} style={{ fontSize: '0.95em', marginBottom: '5px' }}>{tip}</p>
-                    ))}
-                  </>
-                )}
-
-                {/* Répétitions */}
-                <p className="text-plumber-color" style={{ marginTop: '20px', fontSize: '1.2em', fontWeight: 'bold' }}>
-                  🔢 {selectedExercise.reps}
-                </p>
 
                 <button
-                  onClick={() => setSelectedExercise(null)}
+                  onClick={() => setSelectedMovement(null)}
                   className="snes-button has-phantom-color"
                   style={{ marginTop: '30px', width: '100%' }}
                 >

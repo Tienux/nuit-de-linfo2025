@@ -37,9 +37,11 @@ function DecathlonQCM() {
     // Construire le profil
     const profile = {}
     questions.forEach((question, index) => {
+      const selectedOption = question.options[selectedAnswers[index]]
       profile[`question_${question.id}`] = {
         question: question.question,
-        answer: question.options[selectedAnswers[index]],
+        answer: selectedOption ? selectedOption.text : null,
+        scores: selectedOption ? selectedOption.scores : null,
         answerIndex: selectedAnswers[index]
       }
     })
@@ -94,7 +96,7 @@ function DecathlonQCM() {
                   {question.question}
                 </p>
                 <p className="text-nature-color" style={{ fontSize: '1em' }}>
-                  ➤ {question.options[selectedAnswers[index]] || "Non répondu"}
+                  ➤ {question.options[selectedAnswers[index]]?.text || "Non répondu"}
                 </p>
               </blockquote>
             ))}
@@ -181,7 +183,7 @@ function DecathlonQCM() {
               <span style={{ fontWeight: 'bold', marginRight: '10px' }}>
                 {String.fromCharCode(65 + index)}.
               </span>
-              {option}
+              {option.text}
             </li>
           ))}
         </ul>
